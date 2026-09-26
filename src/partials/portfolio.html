@@ -1,0 +1,150 @@
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="portfolio__header">
+      <div class="portfolio__decor" aria-hidden="true">
+        <svg class="portfolio__decor-icon">
+          <use href="./images/sprite.svg#icon-divider"></use>
+        </svg>
+      </div>
+
+      <h2 class="portfolio__title">Portfolio Highlights</h2>
+
+      <p class="portfolio__description">
+        Explore some of my favorite moments from recent weddings.
+      </p>
+    </div>
+
+    <div class="portfolio__filters" role="group" aria-label="Portfolio filters">
+      <button class="portfolio__filter is-active" type="button" data-filter="all">
+        All Images
+      </button>
+      <button class="portfolio__filter" type="button" data-filter="couples">
+        Couples
+      </button>
+      <button class="portfolio__filter" type="button" data-filter="ceremony">
+        Ceremony
+      </button>
+      <button class="portfolio__filter" type="button" data-filter="details">
+        Details
+      </button>
+      <button class="portfolio__filter" type="button" data-filter="reception">
+        Reception
+      </button>
+      <button class="portfolio__filter" type="button" data-filter="portraits">
+        Portraits
+      </button>
+    </div>
+
+    <ul class="portfolio__grid">
+      <li class="portfolio__item" data-category="couples">
+        <button class="portfolio__card" type="button" data-lightbox="portfolio-1">
+          <img
+            class="portfolio__image"
+            src="./images/portfolio/portfolio-1.jpg"
+            alt="Bride and groom outdoors at sunset"
+            loading="lazy"
+          />
+        </button>
+      </li>
+
+      <li class="portfolio__item" data-category="portraits">
+        <button class="portfolio__card" type="button" data-lightbox="portfolio-2">
+          <img
+            class="portfolio__image"
+            src="./images/portfolio/portfolio-2.jpg"
+            alt="Bride portrait in a white wedding dress"
+            loading="lazy"
+          />
+        </button>
+      </li>
+
+      <li class="portfolio__item" data-category="ceremony">
+        <button class="portfolio__card" type="button" data-lightbox="portfolio-3">
+          <img
+            class="portfolio__image"
+            src="./images/portfolio/portfolio-3.jpg"
+            alt="Wedding ceremony inside a wooden venue"
+            loading="lazy"
+          />
+        </button>
+      </li>
+
+      <li class="portfolio__item" data-category="reception">
+        <button class="portfolio__card" type="button" data-lightbox="portfolio-4">
+          <img
+            class="portfolio__image"
+            src="./images/portfolio/portfolio-4.jpg"
+            alt="Couple dancing during a wedding reception"
+            loading="lazy"
+          />
+        </button>
+      </li>
+
+      <li class="portfolio__item" data-category="details">
+        <button class="portfolio__card" type="button" data-lightbox="portfolio-5">
+          <img
+            class="portfolio__image"
+            src="./images/portfolio/portfolio-5.jpg"
+            alt="Wedding rings and floral details"
+            loading="lazy"
+          />
+        </button>
+      </li>
+
+      <li class="portfolio__item" data-category="couples">
+        <button class="portfolio__card" type="button" data-lightbox="portfolio-6">
+          <img
+            class="portfolio__image"
+            src="./images/portfolio/portfolio-6.jpg"
+            alt="Newlyweds walking together by the sea"
+            loading="lazy"
+          />
+        </button>
+      </li>
+
+      <li class="portfolio__item" data-category="reception">
+        <button class="portfolio__card" type="button" data-lightbox="portfolio-7">
+          <img
+            class="portfolio__image"
+            src="./images/portfolio/portfolio-7.jpg"
+            alt="Wedding guests celebrating together"
+            loading="lazy"
+          />
+        </button>
+      </li>
+
+      <li class="portfolio__item" data-category="portraits">
+        <button class="portfolio__card" type="button" data-lightbox="portfolio-8">
+          <img
+            class="portfolio__image"
+            src="./images/portfolio/portfolio-8.jpg"
+            alt="Groom portrait in a suit"
+            loading="lazy"
+          />
+        </button>
+      </li>
+
+      <li class="portfolio__item" data-category="ceremony">
+        <button class="portfolio__card" type="button" data-lightbox="portfolio-9">
+          <img
+            class="portfolio__image"
+            src="./images/portfolio/portfolio-9.jpg"
+            alt="Bride with bridesmaids after the ceremony"
+            loading="lazy"
+          />
+        </button>
+      </li>
+    </ul>
+
+    <a class="portfolio__more" href="./portfolio.html">
+      View more
+    </a>
+  </div>
+</section>
+
+<div class="portfolio-lightbox" data-lightbox-modal aria-hidden="true">
+  <button class="portfolio-lightbox__close" type="button" aria-label="Close image">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <img class="portfolio-lightbox__image" src="" alt="" />
+</div>
