@@ -1,15 +1,23 @@
-const faqQuestions = document.querySelectorAll('.faq-question');
+document.addEventListener('DOMContentLoaded', () => {
+  const faqItems = document.querySelectorAll('.faq-item');
 
-faqQuestions.forEach(question => {
-  question.addEventListener('click', () => {
-    const faqItem = question.closest('.faq-item');
-    const faqAnswer = faqItem.querySelector('.faq-answer');
-    const faqIcon = question.querySelector('.faq-icon');
+  faqItems.forEach(item => {
+    const questionBtn = item.querySelector('.faq-question');
 
-    const isOpen = faqAnswer.style.display === 'block';
+    questionBtn.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
 
-    faqAnswer.style.display = isOpen ? 'none' : 'block';
-    faqIcon.textContent = isOpen ? '+' : '×';
-    question.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      faqItems.forEach(faqItem => {
+        faqItem.classList.remove('active');
+        faqItem
+          .querySelector('.faq-question')
+          .setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isActive) {
+        item.classList.add('active');
+        questionBtn.setAttribute('aria-expanded', 'true');
+      }
+    });
   });
 });
