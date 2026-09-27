@@ -1,0 +1,141 @@
+.benefits {
+  padding: 64px 0px;
+  overflow: hidden;
+}
+
+.benefits__header {
+  text-align: center;
+}
+
+.benefits__decor-icon {
+  display: block;
+  margin: 0 auto 24px auto;
+
+  width: 100%;
+  max-width: 300px;
+  height: 21px;
+}
+
+.benefits__title {
+  max-width: 335px;
+  margin: 0 auto;
+
+  font-family: var(--font-title);
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.benefits__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+
+  margin-top: 40px;
+}
+
+.benefit-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+.benefit-card__icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 12px;
+}
+
+.benefit-card__icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  fill: none;
+  stroke: currentColor;
+}
+
+.benefit-card__title {
+  max-width: 335px;
+  margin: 0;
+
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.benefit-card__text {
+  max-width: 335px;
+  margin: 24px 0 0;
+
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Tablet — 768px */
+@media only screen and (min-width: 768px) {
+  .benefits {
+    padding: 64px 32px;
+  }
+
+  .benefits__title {
+    max-width: 704px;
+  }
+
+  .benefits__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+
+    margin-top: 40px;
+  }
+
+  .benefit-card__title {
+    max-width: 218.67px;
+  }
+
+  .benefit-card__text {
+    max-width: 218.67px;
+  }
+}
+
+/* Desktop — 1440px */
+@media only screen and (min-width: 1440px) {
+  .benefits {
+    padding: 92px 64px;
+  }
+
+  .benefits__header {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+
+  .benefits__title {
+    max-width: 768px;
+    font-size: 40px;
+    line-height: 1.2;
+  }
+
+  .benefits__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 175px;
+
+    max-width: 1312px;
+    margin: 40px auto 0;
+  }
+
+  .benefit-card__title {
+    max-width: 320.67px;
+  }
+
+  .benefit-card__text {
+    max-width: 320.67px;
+  }
+}
