@@ -23,14 +23,12 @@
   line-height: 1.5;
   text-align: center;
 }
-
 .faq-list {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-
 .faq-item {
   display: flex;
   flex-direction: column;
