@@ -12,6 +12,9 @@
 @import url(./container.css);
 
 /* Sections style */
+@import url('./icons.css');
+@import url('./faq.css');
+@import url('./feedbacks.css');
 @import url('./header.css');
 @import url('./hero.css');
 @import url('./about.css');
