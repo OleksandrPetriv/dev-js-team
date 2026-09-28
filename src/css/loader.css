@@ -20,7 +20,6 @@
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Оновлений клас для приховування саме лоадера/модалок */
 .loader-backdrop.is-hidden {
   opacity: 0;
   visibility: hidden;
