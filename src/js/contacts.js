@@ -1,42 +1,35 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-// import { showLoader, hideLoader } from './loader.js';
-
-// import { openSuccessModal } from './success-modal.js';
+import { showLoader, hideLoader } from './loader.js';
+import { modalOpen } from './modal-succsess.js';
 
 const form = document.querySelector('.form-container form');
 const submitBtn = document.querySelector('.submit-button');
-
 const nameInput = form.elements.name;
-const nameContainer = nameInput.closest('.input-container');
-
-const telInput = form.elements.tel;
-const telContainer = telInput.closest('.input-container');
-
+const phoneInput = form.elements.phone;
 const messageInput = form.elements.message;
+const nameContainer = nameInput.closest('.input-container');
+const phoneContainer = phoneInput.closest('.input-container');
 
 form.addEventListener('submit', async event => {
   event.preventDefault();
-
   nameContainer.classList.remove('has-error');
-  telContainer.classList.remove('has-error');
+  phoneContainer.classList.remove('has-error');
 
   const payload = {
     name: nameInput.value.trim(),
-    tel: telInput.value.trim(),
+    phone: phoneInput.value.trim(),
     message: messageInput.value.trim(),
   };
-
   let isValid = true;
 
   if (!payload.name) {
     nameContainer.classList.add('has-error');
     isValid = false;
   }
-
-  if (!payload.tel) {
-    telContainer.classList.add('has-error');
+  if (!payload.phone) {
+    phoneContainer.classList.add('has-error');
     isValid = false;
   }
 
@@ -69,9 +62,8 @@ form.addEventListener('submit', async event => {
     }
 
     form.reset();
+    modalOpen();
 
-    // openSuccessModal();
-    console.log('Запит успішний, модальне вікно має відкритися!');
   } catch (error) {
     console.error('Помилка POST-запиту:', error);
 
@@ -87,3 +79,4 @@ form.addEventListener('submit', async event => {
     submitBtn.disabled = false;
   }
 });
+

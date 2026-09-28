@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <span class="loader is-hidden"></span>
     <load src="./partials/header.html" />
 
     <main>
@@ -35,9 +34,12 @@
     </main>
 
     <load src="./partials/footer.html" />
-
     <load src="./partials/mobile-menu.html" />
-    <load src="./partials/success-modal.html" />
+
+    <div class="loader-backdrop is-hidden">
+      <span class="loader"></span>
+    </div>
+    <load src="./partials/modal-success.html" />
 
     <script type="module" src="./main.js"></script>
   </body>
