@@ -10,7 +10,6 @@ const gallery = document.querySelector('.portfolio__gallery');
 const filtersContainer = document.querySelector('.portfolio__filters');
 const loadMoreBtn = document.querySelector('.portfolio__more');
 
-// Стан додатку
 const state = {
   category: 'all',
   page: 1,
@@ -50,14 +49,13 @@ async function fetchPhotos(isAppend = false) {
   showLoader();
 
   try {
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    // await new Promise(resolve => setTimeout(resolve, 2000));
 
     const requestParams = {
       page: state.page,
       limit: state.limit,
     };
 
-    // Змінюємо ключ з 'category' на 'categoryId' (або перевірте точну назву в документації вашого API)
     if (state.category !== 'all') {
       requestParams.categoryId = state.category;
     }
@@ -66,7 +64,6 @@ async function fetchPhotos(isAppend = false) {
       params: requestParams,
     });
 
-    // Дістаємо масив фотографій з правильної властивості об'єкта[cite: 6]
     const photos = data.weddingPhotos;
 
     if (photos.length === 0 && !isAppend) {
