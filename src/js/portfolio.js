@@ -49,8 +49,6 @@ async function fetchPhotos(isAppend = false) {
   showLoader();
 
   try {
-    // await new Promise(resolve => setTimeout(resolve, 2000));
-
     const requestParams = {
       page: state.page,
       limit: state.limit,
@@ -65,6 +63,7 @@ async function fetchPhotos(isAppend = false) {
     });
 
     const photos = data.weddingPhotos;
+    const totalItems = data.totalItems;
 
     if (photos.length === 0 && !isAppend) {
       gallery.innerHTML = '';
@@ -85,32 +84,29 @@ async function fetchPhotos(isAppend = false) {
 
     if (isAppend) {
       setTimeout(() => {
-        const { height: cardHeight } =
-          gallery.firstElementChild.getBoundingClientRect();
-
-        let scrollMultiplier;
-
-        if (window.innerWidth < 768) {
-          scrollMultiplier = 2;
-        } else if (window.innerWidth < 1440) {
-          scrollMultiplier = 1.5;
-        } else {
-          scrollMultiplier = 1.2;
+        if (gallery.firstElementChild) {
+          const { height: cardHeight } =
+            gallery.firstElementChild.getBoundingClientRect();
+          let scrollMultiplier =
+            window.innerWidth < 768 ? 0.8 : window.innerWidth < 1440 ? 1 : 1.2;
+          window.scrollBy({
+            top: cardHeight * scrollMultiplier,
+            behavior: 'smooth',
+          });
         }
-
-        window.scrollBy({
-          top: cardHeight * scrollMultiplier,
-          behavior: 'smooth',
-        });
       }, 100);
     }
 
-    if (photos.length < state.limit) {
+    const isListEnded =
+      state.page * state.limit >= totalItems || photos.length < state.limit;
+
+    if (isListEnded) {
       loadMoreBtn.disabled = true;
+
       if (isAppend) {
         iziToast.info({
           title: 'Кінець списку',
-          message: 'Ви переглянули всі фото в цій категорії.',
+          message: 'Ви переглянули всі фотографії в цій категорії.',
           position: 'bottomCenter',
         });
       }
@@ -158,8 +154,12 @@ filtersContainer.addEventListener('click', e => {
 });
 
 loadMoreBtn.addEventListener('click', () => {
-  state.page += 1;
-  state.limit = 3;
+  if (state.limit === 9) {
+    state.limit = 3;
+    state.page = 4;
+  } else {
+    state.page += 1;
+  }
 
   fetchPhotos(true);
 });
