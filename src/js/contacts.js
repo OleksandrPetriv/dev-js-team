@@ -17,31 +17,38 @@ form.addEventListener('submit', async event => {
   nameContainer.classList.remove('has-error');
   phoneContainer.classList.remove('has-error');
 
+  const rawPhone = phoneInput.value.trim();
+  const cleanPhone = rawPhone.replace(/\D/g, '');
+
   const payload = {
     name: nameInput.value.trim(),
-    phone: phoneInput.value.trim(),
+    phone: cleanPhone,
     message: messageInput.value.trim(),
   };
+
   let isValid = true;
 
   if (!payload.name) {
     nameContainer.classList.add('has-error');
     isValid = false;
   }
-  if (!payload.phone) {
+
+  const phoneRegex = /^[0-9]{12}$/;
+
+  if (!payload.phone || !phoneRegex.test(payload.phone)) {
     phoneContainer.classList.add('has-error');
     isValid = false;
   }
 
   if (!isValid) {
     iziToast.warning({
-      title: 'Увага',
-      message: "Будь ласка, заповніть всі обов'язкові поля правильно.",
+      title: 'Warning',
+      message:
+        'Please enter a valid 12-digit phone number (e.g. 380XXXXXXXXX) and fill all required fields.',
       position: 'topRight',
     });
     return;
   }
-
   submitBtn.disabled = true;
   showLoader();
 
@@ -58,19 +65,18 @@ form.addEventListener('submit', async event => {
     );
 
     if (!response.ok) {
-      throw new Error('Помилка сервера. Спробуйте пізніше.');
+      throw new Error('Server error. Please try again later.');
     }
 
     form.reset();
     modalOpen();
-
   } catch (error) {
     console.error('Помилка POST-запиту:', error);
 
     iziToast.error({
-      title: 'Помилка',
+      title: 'Error',
       message:
-        "Щось пішло не так під час відправки. Перевірте з'єднання та спробуйте ще раз.",
+        'Something went wrong during submission. Please check your connection and try again.',
       position: 'topRight',
       timeout: 5000,
     });
@@ -79,4 +85,3 @@ form.addEventListener('submit', async event => {
     submitBtn.disabled = false;
   }
 });
-
