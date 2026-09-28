@@ -36,7 +36,7 @@
   height: auto;
 
   overflow-y: auto;
-  /* max-height: 90vh; */
+  max-height: 90vh;
 
   display: flex;
   flex-direction: column;
@@ -102,7 +102,7 @@
   line-height: 1.5;
 }
 
-body.modal-open {
+body.scroll-locked {
   overflow: hidden;
 }
 
