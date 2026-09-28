@@ -17,7 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 0 auto 13px;
   width: 206px;
   height: 180px;
 }
@@ -56,16 +56,23 @@
   gap: 32px;
 }
 
-.footer-nav-link {
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-}
-
 .footer-social-list {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
+}
+
+.footer-nav-link,
+.footer-social-link {
+  border-radius: 6px;
+  padding: 0 6px;
+  width: fit-content;
+  cursor: pointer;
+
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-link {
@@ -74,8 +81,6 @@
   gap: 12px;
   font-size: 14px;
   color: #242424;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
 }
 
 .footer-social-link .icon {
@@ -83,7 +88,19 @@
   flex-shrink: 0;
 }
 
-/* Tablet — 768px */
+.footer-nav-link:hover,
+.footer-nav-link:focus,
+.footer-social-link:hover,
+.footer-social-link:focus {
+  background-color: #00000026;
+}
+
+.footer-nav-link:active,
+.footer-social-link:active {
+  color: #b09a0c;
+  background-color: transparent;
+}
+
 @media only screen and (min-width: 768px) {
   .footer-border {
     display: flex;
@@ -104,7 +121,6 @@
 
   .footer-text-container {
     margin: 0;
-    text-align: left;
   }
 
   .footer-text {
@@ -120,36 +136,15 @@
   }
 
   .footer-social-list {
-    align-items: flex-start;
+    align-items: start;
   }
 
   .footer-links {
     display: flex;
     gap: 40px;
   }
-
-  .footer-social-link:focus-visible,
-  .footer-nav-link:focus-visible {
-    border-radius: 6px;
-    padding: 0 6px;
-    width: 43px;
-    height: 24px;
-    background-color: #00000026;
-  }
-
-  .footer-social-link:active,
-  .footer-nav-link:active {
-    color: #b09a0c;
-  }
-
-  .footer-social-link:hover,
-  .footer-nav-link:hover {
-    background-color: #00000026;
-    border-radius: 6px;
-  }
 }
 
-/* Desktop — 1440px */
 @media only screen and (min-width: 1440px) {
   .footer-container {
     padding-top: 80px;
