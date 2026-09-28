@@ -1,4 +1,3 @@
-import './js/feedback';
 import './js/mobile-menu.js';
 import './js/modal-succsess.js';
 import './js/portfolio.js';
