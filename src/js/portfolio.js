@@ -24,8 +24,8 @@ async function initCategories() {
   } catch (error) {
     console.error(error);
     iziToast.error({
-      title: 'Помилка',
-      message: 'Не вдалося завантажити категорії фільтрів.',
+      title: 'Error',
+      message: 'Failed to load filter categories.',
       position: 'topRight',
     });
   }
@@ -69,8 +69,8 @@ async function fetchPhotos(isAppend = false) {
       gallery.innerHTML = '';
       loadMoreBtn.disabled = true;
       iziToast.info({
-        title: 'Увага',
-        message: 'Для цієї категорії поки немає фотографій.',
+        title: 'Notice',
+        message: 'There are no photos in this category yet.',
         position: 'topRight',
       });
       return;
@@ -105,8 +105,8 @@ async function fetchPhotos(isAppend = false) {
 
       if (isAppend) {
         iziToast.info({
-          title: 'Кінець списку',
-          message: 'Ви переглянули всі фотографії в цій категорії.',
+          title: 'End of list',
+          message: 'You have viewed all photos in this category.',
           position: 'bottomCenter',
         });
       }
@@ -116,8 +116,8 @@ async function fetchPhotos(isAppend = false) {
   } catch (error) {
     console.error(error);
     iziToast.error({
-      title: 'Помилка',
-      message: 'Не вдалося завантажити фотографії. Спробуйте пізніше.',
+      title: 'Error',
+      message: 'Failed to load photos. Please try again later.',
       position: 'topRight',
     });
   } finally {
