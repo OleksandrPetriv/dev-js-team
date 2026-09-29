@@ -23,15 +23,15 @@
   line-height: 1.5;
   text-align: center;
 }
+
 .faq-list {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
+
 .faq-item {
-  display: flex;
-  flex-direction: column;
   border: 2px solid #000000;
   border-radius: 24px;
   background-color: #faf7e6;
@@ -43,7 +43,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 24px;
+  padding: 20px 24px;
   gap: 24px;
 
   background-color: transparent;
@@ -52,7 +52,7 @@
 
   font-weight: 700;
   font-size: 18px;
-  line-height: 150%;
+  line-height: 1.5;
   text-align: left;
 }
 
@@ -62,31 +62,19 @@
 }
 
 .faq-answer {
-  max-height: 0;
-  opacity: 0;
   overflow: hidden;
-  padding: 0 24px 0;
-
-  transition:
-    max-height 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    padding 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .faq-answer p {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.5;
   margin: 0;
-}
-
-.faq-item.active .faq-answer {
-  max-height: 500px;
-  opacity: 1;
   padding: 0 24px 24px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-.faq-item.active .faq-question .faq-icon {
+.ac.is-active .faq-icon {
   transform: rotate(45deg);
 }
 
@@ -103,7 +91,7 @@
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1440px) {
   .faq-title {
     font-size: 48px;
   }
@@ -114,9 +102,5 @@
 
   .faq-list {
     max-width: 768px;
-  }
-
-  .faq-answer p {
-    font-size: 16px;
   }
 }
