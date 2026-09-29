@@ -19,7 +19,6 @@ const state = {
 async function initCategories() {
   try {
     const { data } = await axios.get(`${BASE_URL}/categories`);
-    console.log(data);
     renderFilters(data);
   } catch (error) {
     console.error(error);
