@@ -11,6 +11,16 @@ const phoneInput = form.elements.phone;
 const messageInput = form.elements.message;
 const nameContainer = nameInput.closest('.input-container');
 const phoneContainer = phoneInput.closest('.input-container');
+const inputs = form.querySelectorAll('input');
+
+inputs.forEach(input => {
+  input.addEventListener('focus', function () {
+    const container = this.closest('.input-container');
+    if (container && container.classList.contains('has-error')) {
+      container.classList.remove('has-error');
+    }
+  });
+});
 
 form.addEventListener('submit', async event => {
   event.preventDefault();
